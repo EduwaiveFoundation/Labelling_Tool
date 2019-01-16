@@ -1,0 +1,39 @@
+#container{
+    text-align: center;
+}
+.container {
+    min-height: 100%;
+    width: 100%;
+  }
+  .img {
+      height: 23px;
+    width: 23px;
+    margin-bottom: 18%;
+  }
+  :host .card-picture{
+   
+   text-align: center;
+    width: 23%;
+    margin-bottom: 2%;
+  }
+.image-upload > input
+{
+    display: none;
+}
+.Label > input{
+    display: none;
+}
+.image-upload i
+{
+    width: 320px;
+    cursor: pointer;
+}
+.check_icon > button{
+    display: none;
+}
+.check_icon i{
+    cursor: pointer;
+}
+
+.material-icons.md-48 { font-size: 56px; }
+

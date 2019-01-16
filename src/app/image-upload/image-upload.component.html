@@ -1,0 +1,41 @@
+
+<div class="image-upload" >
+  <label for="file_input">
+    <i class="material-icons md-48">add</i>
+  </label>
+    <input id="file_input" type="file" multiple (change)="detectFiles($event)">
+              
+</div>
+<div>
+  Click to load images
+</div>
+<form (change)="func($event)" >
+<div  ng-app="formApp" ng-controller="formController">
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card fxFlex="0 1 calc(20% )" role="list" class="card-picture" *ngFor="let url of display_img;let i=index">
+    <mat-card-content role="listitem">
+        <mat-card-header>
+          <div fxFlex="80%">{{name[i]}}</div>        
+          <input fxFlex="20%" type="checkbox" name="selected_img" class="selected_img"  value="{{name[i]}}" [checked]="check" >
+        </mat-card-header>
+        <input type="text" id="{{name[i]}}" placeholder="Your Label"  >
+        <img mat-card-image style="height: 100px; width: 100px;" [src]="url">
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
+<div class="Label">
+<label for="Submit"><button (click)="label_imgs()">Label Images</button> </label>
+
+</div>
+</form>
+<button (click)="mapTojson()" method="post">Export</button>
+<div>
+  <form (change)="filter($event)">
+    <input type="radio" name="filter" id="all">All
+    <input type="radio" name="filter" id="Tagged">Tagged
+    <input type="radio" name="filter" id="Untagged" checked>Untagged
+  </form>
+</div>
+
+

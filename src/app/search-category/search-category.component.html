@@ -1,0 +1,19 @@
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Search categories" aria-label="Search categories" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="this.selected_category">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+        <mat-option *ngFor="let option of filteredOptions | async" [(value)]="option">
+          {{option.category_name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <div class="well" style="height:200px;">
+    Recent tags
+  </div>
+<div class="well" style="height:200px;">
+  Popular tag
+</div>
+
+  
