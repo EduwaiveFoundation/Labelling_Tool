@@ -16,9 +16,9 @@
     <mat-card-content role="listitem">
         <mat-card-header>
           <div fxFlex="80%">{{name[i]}}</div>        
-          <input fxFlex="20%" type="checkbox" name="selected_img" class="selected_img"  value="{{name[i]}}" [checked]="check" >
+          <input fxFlex="20%" type="checkbox" name="selected_img" class="selected_img"  value="{{url.split('/')[4]}}" [checked]="check" >
         </mat-card-header>
-        <input type="text" id="{{name[i]}}" placeholder="Your Label"  >
+          <input type="text" id="{{name[i]}}" placeholder="{{url.split('/')[3].replace('%20',' ')}}">
         <img mat-card-image style="height: 100px; width: 100px;" [src]="url">
     </mat-card-content>
   </mat-card>

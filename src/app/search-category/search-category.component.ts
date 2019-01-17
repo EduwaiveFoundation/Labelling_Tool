@@ -13,7 +13,7 @@ import {SetCategoryService} from '../set-category.service';
   styleUrls: ['./search-category.component.css']
 })
 export class SearchCategoryComponent implements OnInit {
-  data: any;
+  
   loading: boolean;
   public selected :string;
   myControl = new FormControl();
@@ -70,18 +70,22 @@ export class SearchCategoryComponent implements OnInit {
 
    makeRequest(): void {
     this.loading = true;
-    this.http.get('http://127.0.0.1:8000/categories/all/')
+    this.http.get('http://127.0.0.1:8000/labelled_images/')
     .subscribe((res: any) => {
-      this.data = res;
+      let result=res.directory_paths
+      let data=[];
+      for(let k in result)
+        data.push(k);
       this.loading=false;
-
-     for(let i of this.data){
+      let index=0;
+     for(let i of data){
 
       let catObj = new Icategory();
-        catObj.category_name=i.category_name;
-        catObj.id=i.id;
+        catObj.category_name=i;
+        catObj.id=index;
         this.options.push(catObj);
         console.log(catObj);
+        index++;
      }
      this.sliceFunc();
       
