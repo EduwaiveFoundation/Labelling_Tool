@@ -89,12 +89,8 @@ label_imgs()
   aMap.forEach ((v,k) => { obj[k] = v });
   return obj;
 });
-
-mapTojson()
+save_btn()
 {
-
-  console.log(this.xah_map_to_obj(category_count));
-  console.log(this.xah_map_to_obj(category_count))
   var sJson = JSON.stringify(this.xah_map_to_obj(category_count));
   var json_data=this.xah_map_to_obj(category_count)
   var now=new Date().toDateString();
@@ -118,6 +114,14 @@ mapTojson()
       () => {
           console.log("The POST observable is now completed.");
       });
+      return sJson
+}
+saveAndExport()
+{
+
+  console.log(this.xah_map_to_obj(category_count));
+  console.log(this.xah_map_to_obj(category_count))
+  var sJson=this.save_btn()
     var element = document.createElement('a');
     element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
     element.setAttribute('download', "Image-Category.json");
