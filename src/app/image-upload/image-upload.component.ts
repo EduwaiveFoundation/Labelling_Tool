@@ -107,7 +107,7 @@ mapTojson()
       obj.time_stamp=now
       data.push(obj)
     }
-    this.http.post('http://127.0.0.1:8000/set_category/',data).subscribe(
+    this.http.post('http://0.0.0.0:8000/set_category/',data).subscribe(
       (val) => {
           console.log("POST call successful value returned in body", 
                       val);
@@ -153,7 +153,7 @@ filter(event)
   constructor(private http:HttpClient,public setCategory : SetCategoryService) { }
   makeRequest(): void {
     
-    this.http.get('http://127.0.0.1:8000/labelled_images/')
+    this.http.get('http://0.0.0.0:8000/labelled_images/')
     .subscribe((res: any) => {
       console.log(res.directory_paths)
       
