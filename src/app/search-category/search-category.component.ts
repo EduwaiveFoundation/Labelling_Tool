@@ -70,7 +70,7 @@ export class SearchCategoryComponent implements OnInit {
 
    makeRequest(): void {
     this.loading = true;
-    this.http.get('http://0.0.0.0:8000/labelled_images/')
+    this.http.get('http://35.232.19.110:8000/labelled_images/')
     .subscribe((res: any) => {
       let result=res.directory_paths
       let data=[];
